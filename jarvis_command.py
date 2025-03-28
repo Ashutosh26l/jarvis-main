@@ -11,14 +11,14 @@ import pywhatkit
 from speak import speak
 engine=pyttsx3.init("sapi5")
 voices=engine.getProperty("voices")
-engine.setProperty("voice",voices[0].id)
+engine.setProperty("voice",voices[2].id)
 rate=engine.getProperty('rate')
 engine.setProperty("rate",rate-30)
 chose=0
-# def speak(text):
-#     print("Jarvis:",text)
-#     engine.say(text)
-#     engine.runAndWait()
+def speak(text):
+     print("Jarvis:",text)
+     engine.say(text)
+     engine.runAndWait()
 
 def listen_to_user():
     count=0
@@ -37,7 +37,7 @@ def listen_to_user():
 
 def command(query):
     global chose
-    patterns=['activate automatic skip ad mode', 'launch rock paper scissor game','activate akinator mode','hello','open','time','what time is going on','youtube','dictionary','play music','search google','question','next','what is your name','stop']
+    patterns=['activate automatic skip ad mode', 'launch rock paper scissor game','activate akinator mode','hello','open','time','what time is going on','youtube','dictionary','play music','google search','question','next','what is your name','stop']
     q=get_close_matches(query.lower(),patterns)
     print(q)
     print(query)
@@ -113,7 +113,7 @@ def command(query):
             speak("now i stop music")
             system('taskkill /F /FI "WINDOWTITLE eq Movies & Tv" ')
             system('taskkill /F /FI "WINDOWTITLE eq Groove Music" ')
-        elif q[0]=='search google':
+        elif q[0]=='google search':
             speak("what for searching")
             g=listen_to_user()
             if g is not None:
@@ -177,11 +177,11 @@ def command(query):
             speak("activated")
 
 
-def getcommand():
-    file=open("myfile.txt",'r')
-    line=file.readlines()
-    query=line[0]
-    command(query)
+# def getcommand():
+#     file=open("myfile.txt",'r')
+#     line=file.readlines()
+#     query=line[0]
+#     command(query)
 
 
-getcommand()
+# getcommand()

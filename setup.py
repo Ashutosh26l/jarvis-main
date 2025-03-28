@@ -15,5 +15,5 @@ setup(
     version = "0.1",
     description = "My jarvis application!",
     options = {"build_exe": build_exe_options},
-    executables = [Executable("jarvis_command.py", base=base)]
+    executables = [Executable("jarvis_main.py", base=base)]
 )
